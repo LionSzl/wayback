@@ -217,10 +217,10 @@ class WaybackSession(_utils.DisableAfterCloseSession, requests.Session):
         `wayback/{version} (+https://github.com/edgi-govdata-archiving/wayback)`
     search_calls_per_second : int or float, optional:
         The number of calls made to the search API per second. The default value is 1.
-        To disable the ratelimit, pass 0.
+        To disable the rate limit, pass 0.
     memento_calls_per_second : int or float, optional:
         The number of calls made to the memento API per second. The default value is 30.
-        To disable the ratelimit, pass 0.
+        To disable the rate limit, pass 0.
     """
 
     # It seems Wayback sometimes produces 500 errors for transient issues, so
@@ -453,8 +453,8 @@ class WaybackClient(_utils.DepthCountedContext):
             filter performed client side and is not a CDX API argument.
             (Default: True)
         calls_per_second : int or float, optional
-            If not None this overwrites the ratelimit set in the session.
-            Set to zero to disable ratelimits for this call.
+            If not None this overwrites the rate limit set in the session.
+            Set to zero to disable rate limits for this call.
         previous_result : str, optional
             *For internal use.* The CDX API sometimes returns repeated results.
             This is used to track the previous result so we can filter out the
@@ -662,8 +662,8 @@ class WaybackClient(_utils.DepthCountedContext):
             when ``follow_redirects=True``.
             Default: True
         calls_per_second : int or float, optional
-            If not None this overwrites the ratelimit set in the session.
-            Set to zero to disable ratelimits for this call.
+            If not None this overwrites the rate limit set in the session.
+            Set to zero to disable rate limits for this call.
 
         Returns
         -------
